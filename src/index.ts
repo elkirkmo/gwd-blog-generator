@@ -1,19 +1,38 @@
 #!/usr/bin/env node
 
-import blogPost from '../blogPost';
-import commander, { program } from 'commander';
+const program = require('commander');
+// const blogPost = require('./blogPost');
 
 console.log('hi');
 
 program
   .version('1.0.0')
   .usage('[options] <keywords>')
-  .option('-v --venue [string]', 'The name of the venue')
-  .option('-c --csv [file]', 'The csv file with the scores')
+  .option('-v --venue <venueName>', 'The name of the venue')
+  //   .option('-c --csv [file]', 'The csv file with the scores')
+  .option(
+    '-r --recommendation <rec>',
+    'Recommend something to try at the venue'
+  )
   .parse(process.argv);
+const { venue, recommendation } = program.opts();
+const winningTeam = 'Floopadoop';
+const winningScore = 75;
+const secondPlaceTeam = 'Another team';
+const secondPlaceScore = 69;
+const totalTeams = 9;
+const randomTeam = 'Poop';
+console.log(venue);
+console.log(`
+${totalTeams} teams showed up to ${venue}, but only one could survive the quizzery and tomfoolery to emerge as the true champion.
 
-if (!program.args.length) {
-  program.help();
-} else {
-  console.log('Keywords: ' + program.args);
-}
+Many guesses (some educated) were made, and the field was very competitive, but the brainest brain of the night went to ${winningTeam} who garnered ${winningScore} overall.
+
+Narrowly edging out the competition was ${secondPlaceTeam}, who were only ${
+  winningScore - secondPlaceScore
+} shy of ${winningTeam} with ${secondPlaceScore};
+
+Shout out to ${randomTeam} for keeping the conversation lively and the drinks flowing.
+
+Congrats to all ${totalTeams} teams, and special thanks to ${venue} for hosting Geeks Who Drink pub trivia. Try a ${recommendation} next time you're around.
+`);
