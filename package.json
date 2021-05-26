@@ -12,7 +12,8 @@
     "gwd-blog-generator": "src/index.ts"
   },
   "dependencies": {
-    "commander": "^7.2.0"
+    "commander": "^7.2.0",
+    "csv-parse": "^4.15.4"
   },
   "devDependencies": {
     "@types/node": "^15.6.1"

@@ -2,6 +2,7 @@
 
 const program = require('commander');
 // const blogPost = require('./blogPost');
+const csvParse = require('csv-parse/lib/sync');
 
 console.log('hi');
 
