@@ -2,7 +2,8 @@
 
 const program = require('commander');
 // const blogPost = require('./blogPost');
-const csvParse = require('csv-parse/lib/sync');
+const csvParse = require('csv-parse');
+const fs = require('fs');
 
 console.log('hi');
 
@@ -10,19 +11,23 @@ program
   .version('1.0.0')
   .usage('[options] <keywords>')
   .option('-v --venue <venueName>', 'The name of the venue')
-  //   .option('-c --csv [file]', 'The csv file with the scores')
   .option(
     '-r --recommendation <rec>',
     'Recommend something to try at the venue'
   )
+  .option('-c --csv [file]', 'The csv file with the scores')
   .parse(process.argv);
-const { venue, recommendation } = program.opts();
+const { venue, recommendation, csv } = program.opts();
 const winningTeam = 'Floopadoop';
 const winningScore = 75;
 const secondPlaceTeam = 'Another team';
 const secondPlaceScore = 69;
 const totalTeams = 9;
 const randomTeam = 'Poop';
+const input = ``;
+
+fs.createStream(csv);
+
 console.log(venue);
 console.log(`
 ${totalTeams} teams showed up to ${venue}, but only one could survive the quizzery and tomfoolery to emerge as the true champion.
